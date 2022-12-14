@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .animation-delay-6000 {
+    animation-delay: 4s;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[#ECF0F3] text-[#1F2937];
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+  h2 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+  li {
+    @apply cursor-pointer;
+  }
+  button {
+    @apply shadow-xl shadow-[grey] rounded-xl bg-gradient-to-r from-[#5651E5] to-[#709DFF];
+  }
+}
