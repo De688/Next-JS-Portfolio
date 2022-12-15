@@ -19,9 +19,9 @@ function About() {
           <h2></h2>
         </motion.div>
         <div className="relative   md:w-[50%] h-full flex justify-center items-center md:pt-[200px] h-[1000px] sm:h-[400px] md:h-[600px]">
-          <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply animate-buble animation-delay-2000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply animate-buble animation-delay-4000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#c891d6] rounded-full mix-blend-multiply animate-buble animation-delay-5000"></div>
+          <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-2000"></div>
+          <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-4000"></div>
+          <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#c891d6] rounded-full mix-blend-multiply light:animate-buble light:animation-delay-5000"></div>
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -29,14 +29,14 @@ function About() {
             transition={{
               duration: 1.0,
             }}
-            className="w-[400px] sm:w-[600px] wrap md:w-[600px] h-800px rounded-xl shadow-xl flex  flex-col bg-gradient-to-t from-[#ffffff21] to-[#bab8df7f] justify-center top-[-10px] items-center transparent absolute border"
+            className="w-[400px] sm:w-[600px] wrap md:w-[600px] h-800px rounded-xl shadow-xl flex  flex-col bg-gradient-to-t from-[#ffffff21] to-[#bab8df7f] dark:bg-[#000000] justify-center top-[-10px] items-center transparent absolute border"
           >
             <div className="w-[95%] h-[90px] ">
-              <div className="flex justify-center md:justify-start  items-center text-2xl pl-10 pt-5 text-[#5651E5] font-bold tracking-wide">
+              <div className="flex justify-center md:justify-start  items-center text-2xl pl-10 pt-5 text-[#5651E5] dark:text-[#b86deb] font-bold tracking-wide">
                 What I Do
               </div>
             </div>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] w-auto md:w-[500px] mb-10 rounded-2xl shadow-xl tracking-wide">
+            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] dark:text-[#b86deb] w-auto md:w-[500px] mb-10 rounded-2xl shadow-xl tracking-wide">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Repudiandae laborumolestias voluptate tae praesentium, enim
               voluptates culpa minima optio dolore!

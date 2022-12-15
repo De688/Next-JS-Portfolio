@@ -18,7 +18,7 @@
 
 @layer base {
   body {
-    @apply bg-[#ECF0F3] text-[#1F2937];
+    @apply bg-[#ECF0F3] text-[#1F2937] dark:bg-[#474545] dark:text-gray-100 transition-all duration-500;
   }
   h1,
   h2,
@@ -34,8 +34,5 @@
   }
   li {
     @apply cursor-pointer;
-  }
-  button {
-    @apply shadow-xl shadow-[grey] rounded-xl bg-gradient-to-r from-[#5651E5] to-[#709DFF];
   }
 }
