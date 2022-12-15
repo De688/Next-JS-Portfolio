@@ -1,7 +1,11 @@
 {
+  "homepage": "http://De688.github.io/chris",
+  "name": "portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "next build",
     "start": "next start"
   },
