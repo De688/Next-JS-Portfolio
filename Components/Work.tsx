@@ -4,21 +4,37 @@ import Portfolioimg from "../assets/portfolio.jpg";
 import Chatappimg from "../assets/chatapp.jpg";
 import Mern from "../assets/mern.jpg";
 import Ngo from "../assets/ngo.jpg";
-
+import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
 
 function Work() {
   return (
     <div className="w-full min-h-full ">
       <div className="w-full min-h-[150px]  flex justify-end items-center">
-        <div className="w-[600px] rounded-l-full bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc ">
+        <motion.div
+          initial={{ x: 200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1.0,
+          }}
+          className="w-[600px] rounded-l-full bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc "
+        >
           My recent{" "}
           <span className="text-[#434dd3fb] dark:text-[#b86deb] pl-4">
             Works
           </span>
-        </div>
+        </motion.div>
       </div>
-      <div className="w-full min-h-full  flex flex-wrap  justify-around items-center px-[10px] pt-[100px] ">
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1.0,
+        }}
+        className="w-full min-h-full  flex flex-wrap  justify-around items-center px-[10px] pt-[100px] "
+      >
         <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#323133] mb-[40px]">
           <Image
             src={Portfolioimg}
@@ -123,7 +139,7 @@ function Work() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

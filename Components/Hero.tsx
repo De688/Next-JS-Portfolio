@@ -4,10 +4,11 @@ import { TiSocialTwitter } from "react-icons/ti";
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 function Hero() {
   return (
-    <div className=" w-full h-screen md:mt-[80px] mb-[200px] md:mb-[0px] flex flex-col justify-center items-center ">
+    <div className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center ">
       <h1 className="font-abc">
         Hi, i'm{" "}
         <span className="text-[#5651E5] dark:text-[#b86deb]">Chris</span>
@@ -33,9 +34,15 @@ function Hero() {
         }}
         className="w-[60%]  flex justify-around items-center h-[60px] pt-[50px]"
       >
-        <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#b86deb]" />
-        <TiSocialLinkedin className="shadow-xl hover:shadow-sm cursor-pointer mt-3 rounded-full text-6xl p-2 text-[#5651E5] dark:text-[#b86deb]" />
-        <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-6xl p-2 text-[#5651E5] dark:text-[#b86deb]" />
+        <Link href="https://github.com/De688">
+          <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#b86deb]" />
+        </Link>
+        <Link href="https://www.linkedin.com/in/christopher-daniel-46055820a/">
+          <TiSocialLinkedin className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#b86deb]" />
+        </Link>
+        <Link href="https://twitter.com/DeDaniel13">
+          <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-6xl p-2 text-[#5651E5] dark:text-[#b86deb]" />
+        </Link>
       </motion.div>
     </div>
   );

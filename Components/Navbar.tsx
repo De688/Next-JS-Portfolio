@@ -61,8 +61,8 @@ function Navbar() {
     <div
       className={
         shadow
-          ? "w-full transition-all fixed h-20 shadow-md  bg-[#ECF0F3] dark:bg-[#474545] z-[100]"
-          : "w-full transition-all fixed h-20  bg-[#ECF0F3] dark:bg-[#474545] z-[100]"
+          ? "w-full transition-all fixed h-20 shadow-md  bg-[#ECF0F3] dark:bg-[#272626] z-[100]"
+          : "w-full transition-all fixed h-20  bg-[#ECF0F3] dark:bg-[#272626] z-[100]"
       }
     >
       <div className="flex justify-between w-full h-full items-center">
