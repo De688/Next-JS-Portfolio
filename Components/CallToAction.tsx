@@ -8,9 +8,7 @@ function CallToAction() {
   const [messagesent, setmessagesent] = useState(false);
   const [Error, setError] = useState(false);
   const form = React.createRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-
+  const sendEmail = () => {
     emailjs
       .sendForm(
         "service_84djbgb",
