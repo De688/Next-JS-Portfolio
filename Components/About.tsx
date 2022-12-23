@@ -37,7 +37,7 @@ function About() {
                 />
               </div>
             </div>
-            <div className="w-full  h-full bg-[#5d3ba0665] text-[#040163c1] flex flex-col justify-around items-center text-center font-md md:text-[18px]  trackingwide">
+            <div className="w-full  h-full bg-[#5d3ba0665] text-[#3328d8] dark:text-[#f15bff] flex flex-col justify-around items-center text-center font-md md:text-[18px]  trackingwide">
               <p className="w-[95%] md:w-[80%] text-center text-[#4c6fcf775]">
                 Hero there ! i'm an entrepreneur, a freelancer and a
                 professional science teacher, i help people and bussines thrives

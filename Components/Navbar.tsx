@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../assets/imglogo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTimes } from "react-icons/fa";
 import { TiSocialTwitter } from "react-icons/ti";
@@ -66,28 +68,29 @@ function Navbar() {
       }
     >
       <div className="flex justify-between w-full h-full items-center">
-        <div className="text-2xl sm:text-3xl md:text-4xl pl-20 justify-center text-[#5651E5] dark:text-[#b86deb] items-center gap-3">
-          C-Daniel
+        <div className="text-2xl sm:text-3xl md:text-2xl pl-20 flex justify-center text-[#5651E5] dark:text-[#f15bff] items-center gap-3">
+          <Image src={logo} alt="logo" width={80} height={80} />
+          Christioper Daniel
         </div>
 
         <div className="hidden w-auto md:flex justify-center align-center gap-6 pr-20 ">
           <Link href="/">
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#b86deb] hover:text-[#25242c] tracking-wide">
+            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               HOME
             </li>
           </Link>
           <Link href="/Services">
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#bd74ee] hover:text-[#25242c]  tracking-wide">
+            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c]  tracking-wide">
               SERVICES
             </li>
           </Link>
           <Link href="/About">
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#b86deb] hover:text-[#25242c] tracking-wide">
+            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               ABOUT
             </li>
           </Link>
           <Link href="/Contact">
-            <li className="flex justify-center items-center text-[#5651E5] dark:text-[#b86deb] hover:text-[#25242c] tracking-wide">
+            <li className="flex justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               CONTACT
             </li>
           </Link>

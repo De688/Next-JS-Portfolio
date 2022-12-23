@@ -11,12 +11,12 @@ function Hero() {
     <div className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center ">
       <h1 className="font-abc">
         Hi, i'm{" "}
-        <span className="text-[#5651E5] dark:text-[#b86deb]">Chris</span>
+        <span className="text-[#5651E5] dark:text-[#f15bff]">Chris</span>
       </h1>
       <h1 className="font-abc text-3xl sm:text-4xl md:text-6xl lg:text-6xl ">{`<Pro web developer />`}</h1>
       <h2 className="w-[95%] md:w-[60%] pt-5 text-[#5f5f5f] font-abc text-xl flex justify-center text-center items-center">
-        Lorem ipsum Cupiditate at perferendis vel cum laboriosam at perferendis
-        vel cum laboriosam
+        I build beautiful websites that meets clients needs and help bussines
+        thrives online
       </h2>
       <motion.div
         initial={{
@@ -35,13 +35,13 @@ function Hero() {
         className="w-[60%]  flex justify-around items-center h-[60px] pt-[50px]"
       >
         <Link href="https://github.com/De688">
-          <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#b86deb]" />
+          <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
         </Link>
         <Link href="https://www.linkedin.com/in/christopher-daniel-46055820a/">
-          <TiSocialLinkedin className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#b86deb]" />
+          <TiSocialLinkedin className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
         </Link>
         <Link href="https://twitter.com/DeDaniel13">
-          <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-6xl p-2 text-[#5651E5] dark:text-[#b86deb]" />
+          <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-6xl p-2 text-[#5651E5] dark:text-[#f15bff]" />
         </Link>
       </motion.div>
     </div>
