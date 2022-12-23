@@ -15,8 +15,8 @@ function Technologies() {
     <div className="w-full min-h-screen dark:bg-blue mt-[40px] sm:mt-[300px]  md:mt-[60px]">
       <div className="w-full flex min-h-[400px] bg-gradient-to-r  from-[#f1f1f1ede] to-[#4747c9]">
         <motion.div
-          initial={{ x: -300, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
             duration: 1.0,
