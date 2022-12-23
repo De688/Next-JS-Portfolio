@@ -7,8 +7,10 @@ import { MdAlternateEmail } from "react-icons/md";
 function CallToAction() {
   const [messagesent, setmessagesent] = useState(false);
   const [Error, setError] = useState(false);
-  const form = React.createRef();
-  const sendEmail = () => {
+
+  const form = useRef<HTMLFormElement>(null!);
+  const sendEmail = (e: any) => {
+    e.preventDefault();
     emailjs
       .sendForm(
         "service_84djbgb",
@@ -37,7 +39,7 @@ function CallToAction() {
   }, [messagesent, Error]);
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center">
       <div className="w-[100%]   min-h-[100%] flex flex-col md:flex-row justify-start items-center md:items-start">
         <div className="w-[90%] pb-5 md:w-[50%] min-h-full flex flex-col justify-center md:justify-start pt-[40px] md:pl-[50px]">
           <div className="text-4xl font-bold min-h-[50px] flex justify-center md:justify-start text-[#626be9f9] font-abc pb-20">
@@ -113,7 +115,7 @@ function CallToAction() {
             Contact Me
           </div>
           <p className=" md:w-[300px] flex flex-col text-[#626be9f9]  md:pl-[50px] text-center md:text-start">
-            Thanks for reaching me, i happily waiting for your message hopping
+            Thanks for reaching me, i'm happily waiting for your message hoping
             to work together
           </p>
           <div className="flex w-[70%] md:w-[50%]  justify-between text-[#626be9f9]  items-center md:pl-[50px] pt-5">
@@ -129,6 +131,9 @@ function CallToAction() {
             <span className="pl-10">Mwanza,Tanzania</span>
           </div>
         </div>
+      </div>
+      <div className="w-full h-20 font-abc bg-blue-600 dark:bg-slate-600 text-white flex justify-center items-center">
+        copyright©2023 Christopher Daniel. All rights reserved
       </div>
     </div>
   );

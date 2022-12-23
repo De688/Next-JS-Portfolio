@@ -37,12 +37,12 @@ function About() {
                 />
               </div>
             </div>
-            <div className="w-full  h-full bg-[#5d3ba0665] flex flex-col justify-around items-center text-center font-md md:text-[18px]  trackingwide">
+            <div className="w-full  h-full bg-[#5d3ba0665] text-[#040163c1] flex flex-col justify-around items-center text-center font-md md:text-[18px]  trackingwide">
               <p className="w-[95%] md:w-[80%] text-center text-[#4c6fcf775]">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Itaque, tenetur magnamasi, culpa, perspiciatis sequi atque odit
-                illo animi modi sit rem suscipit facilis ut provident architecto
-                maxime!
+                Hero there ! i'm an entrepreneur, a freelancer and a
+                professional science teacher, i help people and bussines thrives
+                online by creating professional website and one more thing i
+                highly interested in bussines startups
               </p>
               <div className="w-[50%] h-[40px] flex justify-between pt-[20px] items-center">
                 <Link href="https://t.me/Tt000123466">
@@ -76,25 +76,22 @@ function About() {
           >
             <div className="w-[95%] h-[90px] ">
               <div className="flex justify-center md:justify-start  items-center text-2xl pl-10 pt-5 text-[#5651E5] dark:text-[#c891ec] font-bold tracking-wide">
-                What I Do
+                Why work with Me
               </div>
             </div>
             <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] dark:text-[#b86deb] dark:bg-[#424044] w-auto md:w-[500px] mb-10 rounded-2xl shadow-xl tracking-wide">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae laborumolestias voluptate tae praesentium, enim
-              voluptates culpa minima optio dolore!
+              I have more than three years of experience as a web developer
             </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae laborum eius ptio dolore!
+            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
+              Always make sure my work solve my client's problem as intended and
+              not creating website
             </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae laborum eius
+            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
+              Easy to communicate with so we can work comfotably together
             </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044]  mb-10 rounded-2xl shadow-xl tracking-wide">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae vitae praesentium,
+            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044]  mb-10 rounded-2xl shadow-xl tracking-wide">
+              i'm not afraid to ask probing questions just to make sure i fully
+              understand your needs
             </p>
           </motion.div>
         </div>

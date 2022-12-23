@@ -12,15 +12,15 @@ function Work() {
     <div className="w-full min-h-full ">
       <div className="w-full min-h-[150px]  flex justify-end items-center">
         <motion.div
-          initial={{ x: 200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
             duration: 1.0,
           }}
           className="w-[600px] rounded-l-full bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc "
         >
-          My recent{" "}
+          My recent
           <span className="text-[#434dd3fb] dark:text-[#b86deb] pl-4">
             Works
           </span>
