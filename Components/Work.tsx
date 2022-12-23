@@ -11,7 +11,7 @@ import { AiFillGithub } from "react-icons/ai";
 
 function Work() {
   return (
-    <div className="w-full min-h-full ">
+    <div className="w-full min-h-full " id="tech">
       <div className="w-full min-h-[150px]  flex justify-end items-center">
         <motion.div
           initial={{ y: 50, opacity: 0 }}

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <div className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center ">
+    <div className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center " id="hero">
       <h1 className="font-abc">
         Hi, i'm{" "}
         <span className="text-[#5651E5] dark:text-[#f15bff]">Chris</span>

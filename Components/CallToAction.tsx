@@ -39,7 +39,7 @@ function CallToAction() {
   }, [messagesent, Error]);
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center" id="contact">
       <div className="w-[100%] md:w-[100%]  min-h-[100%] flex flex-col md:flex-row justify-start items-center md:items-start">
         <div className="w-[90%] pb-5 md:w-[50%] min-h-full flex flex-col justify-center md:justify-start pt-[40px] md:pl-[50px]">
           <div className="text-4xl font-bold min-h-[50px] flex justify-center md:justify-start text-[#626be9f9] dark:text-[#f15bff] font-abc pb-20">

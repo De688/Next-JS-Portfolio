@@ -12,7 +12,7 @@ import { SiSocketdotio } from "react-icons/si";
 
 function Technologies() {
   return (
-    <div className="w-full min-h-screen dark:bg-blue mt-[40px]   md:mt-[60px]">
+    <div className="w-full min-h-screen dark:bg-blue mt-[40px]   md:mt-[60px]" >
       <div className="w-full flex min-h-[400px] bg-gradient-to-r  from-[#f1f1f1ede] to-[#4747c9]">
         <motion.div
           initial={{ y: 100, opacity: 0 }}

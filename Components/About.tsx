@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 
 function About() {
   return (
-    <div className="w-full flex flex-col lg:flex-col xl:flex-row wrap justify-center items-center min-h-screen ">
+    <div className="w-full flex flex-col lg:flex-col xl:flex-row wrap justify-center items-center min-h-screen " id="about">
       <div className=" w-full lg:w-[90%] flex  flex-col lg:flex-col xl:flex-row wrap justify-center items-center min-h-screen">
         <motion.div
           initial={{ y: 50, opacity: 0 }}

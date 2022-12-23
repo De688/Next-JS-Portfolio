@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../assets/imglogo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link as SLink } from "react-scroll";
 import { FaTimes } from "react-icons/fa";
 import { TiSocialTwitter } from "react-icons/ti";
 import { TiSocialLinkedin } from "react-icons/ti";
@@ -74,26 +76,26 @@ function Navbar() {
         </div>
 
         <div className="hidden w-auto md:flex justify-center align-center gap-6 pr-20 ">
-          <Link href="/">
+          <SLink to="hero" smooth={true} spy={true}>
             <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               HOME
             </li>
-          </Link>
-          <Link href="/Services">
+          </SLink>
+          <SLink to="about" smooth={true} spy={true}>
             <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c]  tracking-wide">
-              SERVICES
-            </li>
-          </Link>
-          <Link href="/About">
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               ABOUT
             </li>
-          </Link>
-          <Link href="/Contact">
+          </SLink>
+          <SLink to="tech" smooth={true} spy={true}>
+            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
+              PROJECTS
+            </li>
+          </SLink>
+          <SLink to="contact" smooth={true} spy={true}>
             <li className="flex justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
               CONTACT
             </li>
-          </Link>
+          </SLink>
           {renderThemeChanger()}
           {/* <div className="flex justify-center items-center cursor-pointer text-xl text-indigo-500 bg-[#4f51d86]">
             <FiSun className="text-[#11a7bbf84]" />
