@@ -128,18 +128,18 @@ function Navbar() {
           </div>
           <div className="w-full h-[330px] flex justify-center items-center mt-[110px] ">
             <ul className="w-full  h-[330px] flex flex-col justify-around items-center tracking-widest">
-              <Link href="/">
+              <SLink to="hero" smooth={true} spy={true}>
                 <li className="md:tracking-widest dark:text-[#d25ee9]">HOME</li>
-              </Link>
-              <Link href="/Services">
-                <li className="dark:text-[#d25ee9]">SERVICES</li>
-              </Link>
-              <Link href="/About">
+              </SLink>
+              <SLink to="about" smooth={true} spy={true}>
                 <li className="dark:text-[#d25ee9]">ABOUT</li>
-              </Link>
-              <Link href="/Contact">
+              </SLink>
+              <SLink to="tech" smooth={true} spy={true}>
+                <li className="dark:text-[#d25ee9]">PROJECTS</li>
+              </SLink>
+              <SLink to="contact" smooth={true} spy={true}>
                 <li className="dark:text-[#d25ee9]">CONTACT</li>
-              </Link>
+              </SLink>
               {renderThemeChanger()}
             </ul>
           </div>
