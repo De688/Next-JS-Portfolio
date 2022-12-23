@@ -62,9 +62,9 @@ function About() {
           </div>
         </motion.div>
         <div className="relative w-[95%] mt-[50px] sm:w-[95%] md:w-[60%] lg:ml-[50px]  flex justify-end items-center  min-h-[650px] sm:h-[400px] md:h-[600px]">
-          <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-2000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-4000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#b4f143] rounded-full mix-blend-multiply light:animate-buble light:animation-delay-5000"></div>
+          <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply animate-buble animation-delay-2000"></div>
+          <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply animate-buble animation-delay-4000"></div>
+          <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#b4f143] rounded-full mix-blend-multiply animate-buble animation-delay-5000"></div>
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
