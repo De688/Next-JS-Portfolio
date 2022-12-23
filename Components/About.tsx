@@ -25,7 +25,7 @@ function About() {
           }}
           className="  md:h-[500px] flex justify-center items-center w-[95%] md: lg:w-[90%] min-h-[450px] rounded-xl  bg-[#d3d3da66] dark:bg-[#2e2e30] min-h-[300px]"
         >
-          <div className="w-[90%]  md:w-[70%] min-h-[250px] md:min-h-[200px] h-[70%]  shadow-xl rounded-xl bg-[#faf9fa] dark:bg-[#222222] dark:text-[#ec84fa] flex justify-center flex-col">
+          <div className="w-[90%]  md:w-[70%] min-h-[300px] md:min-h-[200px] h-[70%]  shadow-xl rounded-xl bg-[#faf9fa] dark:bg-[#222222] dark:text-[#ec84fa] flex justify-center flex-col">
             <div className="h-[60px]">
               <div className="ml-[50px] p-1  mt-[-40px]  md:mt-[-40px] w-[70px] h-[70px] rounded-full border-4 border-[#d0aae7]">
                 <Image
@@ -61,7 +61,7 @@ function About() {
             </div>
           </div>
         </motion.div>
-        <div className="relative w-[95%] mt-[50px] sm:w-[95%] md:w-[60%] lg:ml-[50px] min-h-[400px] flex justify-end items-center  min-h-[800px] sm:h-[400px] md:h-[600px]">
+        <div className="relative w-[95%] mt-[50px] sm:w-[95%] md:w-[60%] lg:ml-[50px]  flex justify-end items-center  min-h-[650px] sm:h-[400px] md:h-[600px]">
           <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-2000"></div>
           <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply light:animate-buble light:animation-delay-4000"></div>
           <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#b4f143] rounded-full mix-blend-multiply light:animate-buble light:animation-delay-5000"></div>
