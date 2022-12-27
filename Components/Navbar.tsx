@@ -72,7 +72,7 @@ function Navbar() {
       <div className="flex justify-between w-full h-full items-center">
         <div className="text-2xl sm:text-3xl md:text-2xl md:pl-20 flex justify-center text-[#5651E5] dark:text-[#f15bff] items-center md:gap-3">
           <Image src={logo} alt="logo" width={80} height={80} />
-          Christioper Daniel
+          Christopher Daniel
         </div>
 
         <div className="hidden w-auto md:flex justify-center align-center gap-6 pr-20 ">
