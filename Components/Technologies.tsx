@@ -39,7 +39,7 @@ function Technologies() {
           <Image src={techstackimg} width={300} height={300} />
         </div>
       </div>
-      <div className="w-full min-h-auto  flex-col pb-[50px] md:flex-row flex flex-wrap md:flex-nowrap   md:justify-around items-center md:items-start md:bg-fixed bg-[url('../img/bgpic2.jpg')] dark:bg-[url('../img/bgnight.jpg')] bg-cover bg-center width={300} height={300} ">
+      <div className="w-full min-h-auto  flex-col pb-[50px] md:flex-row flex flex-wrap md:flex-nowrap   md:justify-around items-center md:items-start bg-fixed bg-day dark:bg-night bg-cover bg-center width={300} height={300} ">
         <div className="w-[90%] md:w-[40%] min-h-[500px]  rounded-md shadow-xl flex dark:bg-[#201f20] flex-wrap mt-[100px] bg-white">
           <div className="w-full h-[20px] flex justify-center items-center bg-[#c3bfd11f] min-h-[90px] text-[#5731c9f9] dark:text-[#f15bff] m-[5px]  py-[20px] font-abc font-bold text-3xl">
             Frontend

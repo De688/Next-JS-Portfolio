@@ -8,14 +8,17 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <div className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center " id="hero">
+    <div
+      className=" w-full h-screen md:mt-[80px]   flex flex-col justify-center items-center "
+      id="hero"
+    >
       <h1 className="font-abc">
         Hi, i'm{" "}
         <span className="text-[#5651E5] dark:text-[#f15bff]">Chris</span>
       </h1>
       <h1 className="font-abc text-3xl sm:text-4xl md:text-6xl lg:text-6xl ">{`<Pro web developer />`}</h1>
       <h2 className="w-[95%] md:w-[60%] pt-5 text-[#5f5f5f] font-abc text-xl flex justify-center text-center items-center">
-        I build beautiful websites that meets clients needs and help bussines
+        I build beautiful websites that meets clients needs and help bussiness
         thrives online
       </h2>
       <motion.div

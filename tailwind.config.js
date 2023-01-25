@@ -9,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        day: "url('../public/bgpic2.jpg')",
+        night: "url('../public/bgnight.jpg')",
+      },
       fontFamily: {
         abc: ["Poppins", "sans-serif"],
       },
