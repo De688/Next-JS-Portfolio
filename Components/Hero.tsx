@@ -38,13 +38,13 @@ function Hero() {
         className="w-[80%] md:w-[60%] flex justify-between md:justify-around items-center h-[60px] pt-[50px]"
       >
         <Link href="https://github.com/De688">
-          <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
+          <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-5xl md:text-6xl  p-2 text-[#726fdb] dark:text-[#f15bff]" />
         </Link>
         <Link href="https://www.linkedin.com/in/christopher-daniel-46055820a/">
-          <TiSocialLinkedin className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
+          <TiSocialLinkedin className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-5xl md:text-6xl p-2 mt-14  text-[#726fdb] dark:text-[#f15bff]" />
         </Link>
         <Link href="https://twitter.com/DeDaniel13">
-          <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
+          <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-5xl md:text-6xl p-2 text-[#726fdb] dark:text-[#f15bff]" />
         </Link>
       </motion.div>
     </div>

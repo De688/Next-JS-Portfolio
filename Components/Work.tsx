@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Portfolioimg from "../assets/portfolio.jpg";
+import Ecommerce from "../assets/ecommerce.jpg";
 import Chatappimg from "../assets/chatapp.jpg";
 import Mern from "../assets/mern.jpg";
 import Ngo from "../assets/ngo.jpg";
@@ -39,18 +39,18 @@ function Work() {
       >
         <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#323133] mb-[40px]">
           <Image
-            src={Portfolioimg}
+            src={Ecommerce}
             width={470}
             height={470}
             className=" rounded-xl cursor-pointer md:hover:scale-105 transition duration-500 "
           />
           <div className="w-full min-h-[50px]  mt-[5px] z-[30]">
             <div className="text-2xl text-[#555ff1ea] dark:text-[#f15bff]  pl-[5px] font-abc font-bold">
-              React JS portfolio 1.0
+              E-commerce website
             </div>
             <p className="text-[#555ff1ea] dark:text-[#f15bff] font-abc pl-[5px]">
-              Beatiful parsonal portfolio made up with react js with smooth
-              scroll
+              Beatiful e-commerce website made up with mern stack with redux
+              toolkit, this website is fully responsive.
             </p>
             <div className="w-full mh-[60px] flex justify-between pl-[5px] py-[20px]  items-center ">
               <Link href="https://github.com/De688">
