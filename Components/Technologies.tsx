@@ -13,35 +13,28 @@ import { SiSocketdotio } from "react-icons/si";
 function Technologies() {
   return (
     <div className="w-full min-h-screen dark:bg-blue mt-[40px]   md:mt-[60px]">
-      <div className="w-full flex min-h-[400px] bg-gradient-to-r  from-[#f1f1f1ede] to-[#4747c9]">
+      <div className="w-full flex   bg-gradient-to-r  from-[#f1f1f1ede] to-[#4747c9]  items-center">
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
             duration: 1.0,
           }}
-          className=" text-black flex flex-col shadow-xl justify-center wrap bg-[#ffffff] dark:bg-[#333135] dark:text-[#f15bff] w-[80%] h-[300px] sm:w-[50%]  "
+          className="w-[600px] rounded-r-full mb-2 bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc "
         >
-          <div className="w-[100%] sm:w-[90%] h-[200px] flex   flex-col rounded-md">
-            <p className="text-4xl w-auto md:text-6xl pl-10 font-abc">
-              My Tech <span className="text-[#555ff1ea]">Stack</span>
-            </p>
-            <p className="text-3xl md:text-4xl flex justify-end pr-[15px] text-[#555ff1ea] font-abc  pt-10  sm:pr-[40px]">
-              -Frontend
-            </p>
-            <p className="text-3xl flex justify-end font-abc pr-[15px] text-[#555ff1ea] pl-20 sm:pr-[40px]">
-              -Backend
-            </p>
-          </div>
+          My Tech
+          <span className="text-[#434dd3fb] dark:text-[#f15bff] pl-4">
+            Stack
+          </span>
         </motion.div>
         <div className="w-[50%] hidden sm:flex h-full md:flex justify-center items-center">
           <Image src={techstackimg} width={300} height={300} />
         </div>
       </div>
-      <div className="w-full min-h-auto  flex-col pb-[50px] md:flex-row flex flex-wrap md:flex-nowrap   md:justify-around items-center md:items-start bg-fixed bg-[url('/bgpic2.jpg')] dark:bg-[url('/bgnight.jpg')] bg-cover bg-center width={300} height={300} ">
+      <div className="w-full min-h-auto sm:mt-2 flex-col pb-[50px] md:flex-row flex flex-wrap md:flex-nowrap   md:justify-around items-center md:items-start bg-fixed bg-[url('/bgpic2.jpg')] dark:bg-[url('/bgnight.jpg')] bg-cover bg-center width={300} height={300} ">
         <div className="w-[90%] md:w-[40%] min-h-[500px]  rounded-md shadow-xl flex dark:bg-[#201f20] flex-wrap mt-[100px] bg-white">
-          <div className="w-full h-[20px] flex justify-center items-center bg-[#c3bfd11f] min-h-[90px] text-[#5731c9f9] dark:text-[#f15bff] m-[5px]  py-[20px] font-abc font-bold text-3xl">
+          <div className="w-full h-[20px] flex justify-center items-center bg-[#c3bfd11c] min-h-[90px] text-[#5731c9f9] dark:text-[#f15bff] m-[5px]  py-[20px] font-abc font-bold text-3xl">
             Frontend
           </div>
           <div className="w-full h-auto flex justify-around pt-[50px] items-center flex-wrap">
