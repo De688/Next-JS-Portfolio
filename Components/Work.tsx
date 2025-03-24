@@ -10,7 +10,7 @@ import chatappImg from "../assets/chatapp.jpg";
 import mernImg from "../assets/mern.jpg";
 import ngoImg from "../assets/ngo.jpg";
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard =  ({ project, index }: { project: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
