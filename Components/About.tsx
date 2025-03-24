@@ -19,7 +19,7 @@ function About() {
 
   const fadeInUp = {
     hidden: { y: 60, opacity: 0 },
-    visible: (i) => ({
+    visible: (i: any) => ({
       y: 0,
       opacity: 1,
       transition: {
