@@ -1,156 +1,233 @@
 import React, { useState, useEffect } from "react";
-
 import Image from "next/image";
-import Link from "next/link";
-import logo from "../assets/imglogo.png";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { Link as SLink } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTimes } from "react-icons/fa";
-import { TiSocialTwitter } from "react-icons/ti";
-import { TiSocialLinkedin } from "react-icons/ti";
+import { TiSocialTwitter, TiSocialLinkedin } from "react-icons/ti";
 import { AiFillGithub } from "react-icons/ai";
 import { BsFillMoonFill } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
 import { useTheme } from "next-themes";
-
-import { motion } from "framer-motion";
+import logo from "../assets/imglogo.png";
 
 function Navbar() {
-  const [shadow, setshadow] = useState(false);
-  const [shownav, setshownav] = useState(false);
+  const [shadow, setShadow] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { systemTheme, theme, setTheme } = useTheme();
 
-  const OpennavMenu = () => {
-    setshownav(true);
-  };
-  const closenavMenu = () => {
-    setshownav(false);
-  };
   useEffect(() => {
     setMounted(true);
-    const handlescroll = () => {
-      if (window.scrollY <= 90) {
-        setshadow(false);
+    const handleShadow = () => {
+      if (window.scrollY >= 10) {
+        setShadow(true);
       } else {
-        setshadow(true);
+        setShadow(false);
       }
     };
-    window.addEventListener("scroll", handlescroll);
+    window.addEventListener('scroll', handleShadow);
+    return () => window.removeEventListener('scroll', handleShadow);
   }, []);
 
-  const { systemTheme, theme, setTheme } = useTheme();
+  const navItems = [
+    { title: "HOME", to: "hero" },
+    { title: "ABOUT", to: "about" },
+    { title: "PROJECTS", to: "tech" },
+    { title: "CONTACT", to: "contact" },
+  ];
 
   const renderThemeChanger = () => {
     if (!mounted) return null;
     const currentTheme = theme === "system" ? systemTheme : theme;
-    console.log(currentTheme);
 
-    if (currentTheme === "dark") {
-      return (
-        <FiSun
-          className="w-6 h-6 text-yellow-500 "
-          onClick={() => setTheme("light")}
-        />
-      );
-    } else {
-      return (
-        <BsFillMoonFill
-          className="w-6 h-6 text-[#587ae9] "
-          onClick={() => setTheme("dark")}
-        />
-      );
-    }
-  };
-  return (
-    <div
-      className={
-        shadow
-          ? "w-full transition-all fixed h-20 shadow-md  bg-[#ECF0F3] dark:bg-[#272626] z-[100]"
-          : "w-full transition-all fixed h-20  bg-[#ECF0F3] dark:bg-[#272626] z-[100]"
-      }
-    >
-      <div className="flex justify-between w-full h-full items-center">
-        <div className="text-2xl sm:text-3xl md:text-2xl md:pl-20 flex justify-center text-[#5651E5] dark:text-[#f15bff] items-center md:gap-3">
-          <Image src={logo} alt="logo" width={80} height={80} />
-          Christopher Daniel
-        </div>
-
-        <div className="hidden w-auto md:flex justify-center align-center gap-6 pr-20 ">
-          <SLink to="hero" smooth={true} spy={true}>
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
-              HOME
-            </li>
-          </SLink>
-          <SLink to="about" smooth={true} spy={true}>
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c]  tracking-wide">
-              ABOUT
-            </li>
-          </SLink>
-          <SLink to="tech" smooth={true} spy={true}>
-            <li className="flex transition-all justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
-              PROJECTS
-            </li>
-          </SLink>
-          <SLink to="contact" smooth={true} spy={true}>
-            <li className="flex justify-center items-center text-[#5651E5] dark:text-[#f15bff] hover:text-[#25242c] tracking-wide">
-              CONTACT
-            </li>
-          </SLink>
-          {renderThemeChanger()}
-          {/* <div className="flex justify-center items-center cursor-pointer text-xl text-indigo-500 bg-[#4f51d86]">
-            <FiSun className="text-[#11a7bbf84]" />
-          </div> */}
-        </div>
-        <div className="r-0 mr-10 text-4xl cursor-pointer md:hidden">
-          <RxHamburgerMenu onClick={OpennavMenu} />
-        </div>
-      </div>
-      <div
-        className={
-          !shownav
-            ? ""
-            : " fixed w-full h-screen top-0 left-0 z-[20] transition-all  absolute bg-[#05050583] md:hidden"
-        }
+    return (
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
+        className="relative p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 dark:bg-blue-400/10 dark:hover:bg-blue-400/20 transition-all duration-300"
       >
-        <div
-          className={
-            !shownav
-              ? "fixed absolute z-[100] w-[70%] top-0 left-[-70%] transition-all h-screen md:hidden bg-[#e4e4e4] dark:bg-[#272424]"
-              : "fixed w-[70%] top-0 left-0 h-screen transition-all  md:hidden bg-[#e4e4e4] dark:bg-[#383535]"
-          }
-        >
-          <div className="w-full h-[30px] flex justify-between items-center pt-10">
-            <h1 className="text-[#5651E5] dark:text-[#d25ee9] pl-5">Chris</h1>
-            <FaTimes
-              onClick={closenavMenu}
-              className="text-4xl cursor-pointer md:text-6xl mr-5 rounded-full p-1 md:p-3 text-[#5651E5] dark:text-[#d25ee9] shadow-xl"
-            />
+        {currentTheme === "dark" ? (
+          <FiSun className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+        ) : (
+          <BsFillMoonFill className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+        )}
+      </motion.button>
+    );
+  };
+
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed w-full z-50 transition-all duration-500`}
+    >
+      {/* Backdrop */}
+      <div
+        className={`absolute inset-0 transition-all duration-500 ${
+          shadow
+            ? "backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 shadow-lg shadow-blue-500/5"
+            : "bg-transparent"
+        }`}
+      />
+
+      {/* Main Content */}
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo Section */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-3 z-10"
+          >
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
+              <div className="relative">
+                <Image
+                  src={logo}
+                  alt="logo"
+                  width={48}
+                  height={48}
+                  className="rounded-full   "
+                />
+              </div>
+            </div>
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              Chris Web Dev
+            </span>
+          </motion.div>
+
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="flex items-center space-x-2">
+              {navItems.map((item) => (
+                <SLink key={item.to} to={item.to} smooth={true} spy={true}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="relative px-4 py-2"
+                  >
+                    <span className="relative z-10 text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors group-hover:text-white">
+                      {item.title}
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 hover:opacity-10 transition-opacity duration-300"
+                    />
+                  </motion.div>
+                </SLink>
+              ))}
+            </div>
           </div>
-          <div className="w-full h-[330px] flex justify-center items-center mt-[110px] ">
-            <ul className="w-full  h-[330px] flex flex-col justify-around items-center tracking-widest">
-              <SLink to="hero" smooth={true} spy={true}>
-                <li className="md:tracking-widest dark:text-[#d25ee9]">HOME</li>
-              </SLink>
-              <SLink to="about" smooth={true} spy={true}>
-                <li className="dark:text-[#d25ee9]">ABOUT</li>
-              </SLink>
-              <SLink to="tech" smooth={true} spy={true}>
-                <li className="dark:text-[#d25ee9]">PROJECTS</li>
-              </SLink>
-              <SLink to="contact" smooth={true} spy={true}>
-                <li className="dark:text-[#d25ee9]">CONTACT</li>
-              </SLink>
-              {renderThemeChanger()}
-            </ul>
-          </div>
-          <div className="flex justify-around mt-20">
-            <AiFillGithub className="shadow-xl cursor-pointer hover:shadow-sm transition-[all 0.2s ease]  rounded-full text-4xl  p-2 text-[#5651E5] dark:text-[#b86deb]" />
-            <TiSocialLinkedin className="shadow-xl hover:shadow-sm cursor-pointer mt-3 rounded-full text-4xl  p-2 text-[#5651E5] dark:text-[#b86deb]" />
-            <TiSocialTwitter className="shadow-xl hover:shadow-sm cursor-pointer rounded-full text-4xl  p-2 text-[#5651E5] dark:text-[#b86deb]" />
+
+          {/* Right Section */}
+          <div className="flex items-center gap-4">
+            {/* Theme Toggle */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="hidden md:block"
+            >
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="relative p-2 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-300"
+              >
+                {theme === "dark" ? (
+                  <FiSun className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                ) : (
+                  <BsFillMoonFill className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                )}
+              </motion.button>
+            </motion.div>
+
+            {/* Contact Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:block px-4 py-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+            >
+              Get in Touch
+            </motion.button>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="md:hidden relative p-2 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+              onClick={() => setShowNav(true)}
+            >
+              <RxHamburgerMenu className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+            </motion.button>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {showNav && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setShowNav(false)}
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 20 }}
+              className="fixed top-0 right-0 w-72 h-full bg-gradient-to-b from-white/90 to-blue-50/90 dark:from-gray-900/90 dark:to-blue-900/90 backdrop-blur-xl z-50 md:hidden"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-8">
+                  <span className="text-xl font-bold text-blue-500 dark:text-blue-400">Menu</span>
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setShowNav(false)}
+                    className="p-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 dark:bg-blue-400/10 dark:hover:bg-blue-400/20"
+                  >
+                    <FaTimes className="h-6 w-6 text-blue-500 dark:text-blue-400" />
+                  </motion.button>
+                </div>
+                <div className="space-y-6">
+                  {navItems.map((item) => (
+                    <SLink
+                      key={item.to}
+                      to={item.to}
+                      smooth={true}
+                      spy={true}
+                      onClick={() => setShowNav(false)}
+                    >
+                      <motion.div
+                        whileHover={{ x: 5 }}
+                        className="block py-2 text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400"
+                      >
+                        {item.title}
+                      </motion.div>
+                    </SLink>
+                  ))}
+                  {renderThemeChanger()}
+                </div>
+                
+                <motion.div className="flex gap-4 mt-8">
+                  {[AiFillGithub, TiSocialLinkedin, TiSocialTwitter].map(
+                    (Icon, index) => (
+                      <motion.a
+                        key={index}
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 dark:bg-blue-400/10 dark:hover:bg-blue-400/20"
+                      >
+                        <Icon className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                      </motion.a>
+                    )
+                  )}
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }
 

@@ -1,160 +1,168 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import Ecommerce from "../assets/ecommerce.jpg";
-import Chatappimg from "../assets/chatapp.jpg";
-import Mern from "../assets/mern.jpg";
-import Ngo from "../assets/ngo.jpg";
-import { motion } from "framer-motion";
-import { BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
-import { AiFillGithub } from "react-icons/ai";
+import { motion } from "framer-motion";
+import { FiGithub, FiExternalLink, FiArrowRight } from "react-icons/fi";
+
+// Import your project images
+import ecommerceImg from "../assets/ecommerce.jpg";
+import chatappImg from "../assets/chatapp.jpg";
+import mernImg from "../assets/mern.jpg";
+import ngoImg from "../assets/ngo.jpg";
+
+const ProjectCard = ({ project, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      className="w-full max-w-sm mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative overflow-hidden h-60">
+        <Image
+          src={project.image}
+          alt={project.title}
+          layout="fill"
+          objectFit="cover"
+          className="transition-transform duration-700 ease-in-out"
+          style={{
+            transform: isHovered ? "scale(1.05)" : "scale(1)",
+          }}
+        />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+      </div>
+      
+      <div className="p-6">
+        <motion.h3 
+          className="text-xl font-bold mb-2 text-indigo-600 dark:text-pink-400"
+          initial={{ x: -20 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          {project.title}
+        </motion.h3>
+        
+        <p className="text-gray-700 dark:text-gray-300 mb-4 h-24 overflow-hidden">
+          {project.description}
+        </p>
+        
+        <div className="flex items-center justify-between mt-6">
+          <Link href={project.github}>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors dark:bg-pink-600 dark:hover:bg-pink-700"
+            >
+              <FiGithub /> Code
+            </motion.a>
+          </Link>
+          
+          <Link href={project.demo || "#"}>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-100 text-indigo-600 border border-indigo-200 rounded-md transition-colors dark:bg-gray-700 dark:text-pink-400 dark:border-pink-800 dark:hover:bg-gray-600"
+            >
+              <span>Demo</span>
+              <FiExternalLink />
+            </motion.a>
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 function Work() {
+  const projects = [
+    {
+      title: "E-commerce Website",
+      description: "A beautiful e-commerce website built with MERN stack and Redux Toolkit. Fully responsive with modern UI/UX principles.",
+      image: ecommerceImg,
+      github: "https://github.com/De688",
+      demo: "#"
+    },
+    {
+      title: "Real-time Chat Application",
+      description: "Real-time chat application built with React, Node.js, and Socket.io. Features include chatbot functionality, join/leave rooms, and instant messaging.",
+      image: chatappImg,
+      github: "https://github.com/De688",
+      demo: "#"
+    },
+    {
+      title: "MERN Stack World Tour",
+      description: "Full MERN stack website including JWT authentication, MongoDB database, Node.js, Express, and Redux for state management.",
+      image: mernImg,
+      github: "https://github.com/De688",
+      demo: "#"
+    },
+    {
+      title: "NGO Website",
+      description: "A purpose-driven NGO website built with React.js and Firebase, featuring donation capabilities and mission information.",
+      image: ngoImg,
+      github: "https://github.com/De688",
+      demo: "#"
+    }
+  ];
+
   return (
-    <div className="w-full min-h-full " id="tech">
-      <div className="w-full min-h-[150px]  flex justify-end items-center">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+    <section className="py-24 px-4 bg-gray-50 dark:bg-gray-900" id="work">
+      <div className="container mx-auto">
+        {/* Header */}
+        <div className="mb-16 relative">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative z-10"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+              <span className="text-gray-800 dark:text-white">My Recent </span>
+              <span className="text-indigo-600 dark:text-pink-400">Work</span>
+            </h2>
+            <div className="w-24 h-1 bg-indigo-600 dark:bg-pink-400 mx-auto mb-6"></div>
+            <p className="text-center text-gray-600 dark:text-gray-300 max-w-lg mx-auto">
+              A showcase of my latest projects and web applications developed with modern technologies
+            </p>
+          </motion.div>
+          
+          
+        </div>
+        
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+        
+        {/* View More Projects Button */}
+        <motion.div 
+          className="flex justify-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 1.0,
-          }}
-          className="w-[600px] rounded-l-full bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc "
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
-          My recent
-          <span className="text-[#434dd3fb] dark:text-[#f15bff] pl-4">
-            Works
-          </span>
+          <Link href="/projects">
+            <motion.a 
+              className="group flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 border border-indigo-200 rounded-lg shadow-md hover:shadow-lg transition-all dark:bg-gray-800 dark:text-pink-400 dark:border-pink-900"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>View More Projects</span>
+              <FiArrowRight className="transition-transform group-hover:translate-x-2" />
+            </motion.a>
+          </Link>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 1.0,
-        }}
-        className="w-full min-h-full  flex flex-wrap  justify-around items-center px-[10px] pt-[100px] "
-      >
-        <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#323133] mb-[40px]">
-          <Image
-            src={Ecommerce}
-            width={470}
-            height={470}
-            className=" rounded-xl cursor-pointer md:hover:scale-105 transition duration-500 "
-          />
-          <div className="w-full min-h-[50px]  mt-[5px] z-[30]">
-            <div className="text-2xl text-[#555ff1ea] dark:text-[#f15bff]  pl-[5px] font-abc font-bold">
-              E-commerce website
-            </div>
-            <p className="text-[#555ff1ea] dark:text-[#f15bff] font-abc pl-[5px]">
-              Beatiful e-commerce website made up with mern stack with redux
-              toolkit, this website is fully responsive.
-            </p>
-            <div className="w-full mh-[60px] flex justify-between pl-[5px] py-[20px]  items-center ">
-              <Link href="https://github.com/De688">
-                <button className="w-[120px] shadow-xl flex justify-center items-center rounded-sm text-[white] pl-[0px]  bg-blue-600  dark:text-[#b9b1b9f8] hover:shadow-xl h-[40px]">
-                  <AiFillGithub className=" rounded-full text-4xl p-2 text-[#ffffff] dark:text-[#c5c4c5]" />
-                  Github
-                </button>
-              </Link>
-              <div className="w-[100px] h-[40px] rounded-sm justify-around items-center flex cursor-pointer hover:bg-[#9794b47] text-[#65648fb5] dark:text-[#b86deb] hover:text-[#333dd3] hover:bg-[#9094cc53] mr-[5px]">
-                <span>Visit</span>
-                <BsArrowRight className="text-2xl pl-[3px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#323033] mb-[40px]">
-          <Image
-            src={Chatappimg}
-            width={470}
-            height={470}
-            className="rounded-xl cursor-pointer md:hover:scale-105 transition duration-500 "
-          />
-          <div className="w-full min-h-[50px]  mt-[5px] z-[30]">
-            <div className="text-2xl text-[#555ff1ea] dark:text-[#ec68f8] pl-[5px] font-abc font-bold">
-              Real time Chat web application
-            </div>
-            <p className="text-[#555ff1ea] dark:text-[#f07efa] font-abc pl-[5px]">
-              Real time chat web application made up with react js node js and
-              socket.io with chatbot functionality a person can join and leave
-              chatroom however they want
-            </p>
-            <div className="w-full mh-[60px] flex justify-between pl-[5px] py-[20px]  items-center ">
-              <Link href="https://github.com/De688">
-                <button className="w-[120px] shadow-xl flex justify-center items-center rounded-sm text-[white] pl-[0px]  bg-blue-600  dark:text-[#b9b1b9f8] hover:shadow-xl h-[40px]">
-                  <AiFillGithub className=" rounded-full text-4xl p-2 text-[#ffffff] dark:text-[#c5c4c5]" />
-                  Github
-                </button>
-              </Link>
-              <div className="w-[100px] h-[40px] rounded-sm justify-around items-center flex cursor-pointer hover:bg-[#9794b47] text-[#65648fb5] dark:text-[#b86deb] hover:text-[#333dd3] hover:bg-[#9094cc53] mr-[5px]">
-                <span>Visit</span>
-                <BsArrowRight className="text-2xl pl-[3px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#2a2a2b] mb-[40px]">
-          <Image
-            src={Mern}
-            width={470}
-            height={470}
-            className="rounded-xl cursor-pointer md:hover:scale-105 transition duration-500 "
-          />
-          <div className="w-full min-h-[50px]  mt-[5px] z-[30]">
-            <div className="text-2xl text-[#555ff1ea] dark:text-[#f15bff] pl-[5px] font-abc font-bold">
-              Mern Stack World Tour Website
-            </div>
-            <p className="text-[#555ff1ea] dark:text-[#f15bff] font-abc pl-[5px]">
-              Full mern stack website which include sign up with JsonWebToken,
-              MongoDB database,node js, express js and redux
-            </p>
-            <div className="w-full mh-[60px] flex justify-between pl-[5px] py-[20px]  items-center ">
-              <Link href="https://github.com/De688">
-                <button className="w-[120px] shadow-xl flex justify-center items-center rounded-sm text-[white] pl-[0px]  bg-blue-600  dark:text-[#b9b1b9f8] hover:shadow-xl h-[40px]">
-                  <AiFillGithub className=" rounded-full text-4xl p-2 text-[#ffffff] dark:text-[#c5c4c5]" />
-                  Github
-                </button>
-              </Link>
-              <div className="w-[100px] h-[40px] rounded-sm justify-around items-center flex cursor-pointer hover:bg-[#9794b47] text-[#65648fb5] dark:text-[#b86deb] hover:text-[#333dd3] hover:bg-[#9094cc53] mr-[5px]">
-                <span>Visit</span>
-                <BsArrowRight className="text-2xl pl-[3px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="w-[470px] min-h-[470px] shadow-md border-0 rounded-xl overflow-hidden bg-[#ffffff] dark:bg-[#2f2f30] mb-[40px]">
-          <Image
-            src={Ngo}
-            width={470}
-            height={470}
-            className=" rounded-xl cursor-pointer md:hover:scale-105 transition duration-500"
-          />
-          <div className="w-full min-h-[50px]  mt-[5px] z-[30]">
-            <div className="text-2xl text-[#555ff1ea] dark:text-[#f15bff] pl-[5px] font-abc font-bold">
-              NGO based website
-            </div>
-            <p className="text-[#555ff1ea] dark:text-[#f15bff] font-abc pl-[5px]">
-              NGO website made up with react js, Firebase
-            </p>
-            <div className="w-full mh-[60px] flex justify-between pl-[5px] py-[20px]  items-center ">
-              <Link href="https://github.com/De688">
-                <button className="w-[120px] shadow-xl flex justify-center items-center rounded-sm text-[white] pl-[0px]  bg-blue-600  dark:text-[#b9b1b9f8] hover:shadow-xl h-[40px]">
-                  <AiFillGithub className=" rounded-full text-4xl p-2 text-[#ffffff] dark:text-[#c5c4c5]" />
-                  Github
-                </button>
-              </Link>
-              <div className="w-[100px] h-[40px] rounded-sm justify-around items-center flex cursor-pointer hover:bg-[#9794b47] text-[#65648fb5] dark:text-[#b86deb] hover:text-[#333dd3] hover:bg-[#9094cc53] mr-[5px]">
-                <span>Visit</span>
-                <BsArrowRight className="text-2xl pl-[3px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
+    </section>
   );
 }
 

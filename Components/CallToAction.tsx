@@ -85,7 +85,7 @@ function CallToAction() {
                 </label>
               </div>
               {messagesent ? (
-                <div className="w-[80%] min-h-[50px] mb-5 px-[10px] flex justify-center items-center flex-wrap bg-green-200 text-green-800 rounded-full transition-all ">
+                <div className="w-[80%] p-3 min-h-[50px] mb-5 px-[40px] flex justify-center items-center text-center flex-wrap bg-green-200 text-green-800 rounded-full transition-all ">
                   message sent successfully, thank you i will get back to you as
                   soon as i receive this message
                 </div>
@@ -93,7 +93,7 @@ function CallToAction() {
                 <></>
               )}
               {Error ? (
-                <div className="w-[80%] min-h-[50px] mb-5 px-[10px] flex justify-center items-center flex-wrap bg-red-100 rounded-full transition-all text-red-600 ">
+                <div className="w-[80%] p-3 min-h-[50px] mb-5 px-[40px] flex justify-center items-center text-center flex-wrap bg-red-100 rounded-full transition-all text-red-600 ">
                   action Failed , check your internet connection and try again
                   :(
                 </div>
@@ -132,8 +132,8 @@ function CallToAction() {
           </div>
         </div>
       </div>
-      <div className="w-full px-5 text-center min-h-20 font-abc bg-blue-600 dark:bg-[#f15bffc9] text-white flex justify-center items-center">
-        copyright©2023 Christopher Daniel. All rights reserved
+      <div className="w-full px-5 text-center min-h-20 font-abc bg-blue-800 dark:bg-[#f15bffc9] text-white flex justify-center items-center">
+        copyright©2025 Christopher Daniel. All rights reserved
       </div>
     </div>
   );

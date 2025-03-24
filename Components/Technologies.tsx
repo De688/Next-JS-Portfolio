@@ -2,86 +2,184 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import techstackimg from "../assets/undraw5.svg";
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaNodeJs } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiRedux, SiTailwindcss, SiCss3 } from "react-icons/si";
+import { SiRedux, SiTailwindcss, SiCss3, SiFirebase, SiSocketdotio } from "react-icons/si";
 import { AiFillHtml5 } from "react-icons/ai";
-import { FaNodeJs } from "react-icons/fa";
-import { SiFirebase } from "react-icons/si";
-import { SiSocketdotio } from "react-icons/si";
 
 function Technologies() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  const frontendTech = [
+    { icon: <FaReact />, name: "React JS" },
+    { icon: <TbBrandNextjs />, name: "Next JS" },
+    { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+    { icon: <SiRedux />, name: "Redux" },
+    { icon: <AiFillHtml5 />, name: "HTML" },
+    { icon: <SiCss3 />, name: "CSS" }
+  ];
+
+  const backendTech = [
+    { icon: <FaNodeJs />, name: "Node JS" },
+    { icon: <SiFirebase />, name: "Firebase" },
+    { icon: <SiSocketdotio />, name: "Socket.io" }
+  ];
+
   return (
-    <div className="w-full min-h-screen dark:bg-blue mt-[40px]   md:mt-[60px]">
-      <div className="w-full flex   bg-gradient-to-r  from-[#f1f1f1ede] to-[#4747c9]  items-center">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+    <div className="w-full min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 py-20" id="technologies">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 1.0,
-          }}
-          className="w-[600px] rounded-r-full mb-2 bg-[white] shadow-xl h-[150px] dark:bg-[#2c2b2c] flex justify-center items-center mt-[30px] text-3xl sm:text-4xl md:text-6xl pr-[20px] font-abc "
+          transition={{ duration: 0.6 }}
+          className="mb-20"
         >
-          My Tech
-          <span className="text-[#434dd3fb] dark:text-[#f15bff] pl-4">
-            Stack
-          </span>
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative mb-10 md:mb-0"
+            >
+              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
+                My Tech <span className="text-blue-600 dark:text-blue-400">Stack</span>
+              </h2>
+              <div className="w-32 h-2 bg-blue-600 mt-4 rounded-full"></div>
+              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-md">
+                The technologies I work with to bring innovative solutions to life
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative z-10">
+                <Image 
+                  src={techstackimg} 
+                  width={300} 
+                  height={300} 
+                  alt="Tech Stack Illustration"
+                  className="drop-shadow-xl"
+                />
+              </div>
+              
+            </motion.div>
+          </div>
         </motion.div>
-        <div className="w-[50%] hidden sm:flex h-full md:flex justify-center items-center">
-          <Image src={techstackimg} width={300} height={300} />
-        </div>
-      </div>
-      <div className="w-full min-h-auto sm:mt-2 flex-col pb-[50px] md:flex-row flex flex-wrap md:flex-nowrap   md:justify-around items-center md:items-start bg-fixed bg-[url('/bgpic2.jpg')] dark:bg-[url('/bgnight.jpg')] bg-cover bg-center width={300} height={300} ">
-        <div className="w-[90%] md:w-[40%] min-h-[500px]  rounded-md shadow-xl flex dark:bg-[#201f20] flex-wrap mt-[100px] bg-white">
-          <div className="w-full h-[20px] flex justify-center items-center bg-[#c3bfd11c] min-h-[90px] text-[#5731c9f9] dark:text-[#f15bff] m-[5px]  py-[20px] font-abc font-bold text-3xl">
-            Frontend
-          </div>
-          <div className="w-full h-auto flex justify-around pt-[50px] items-center flex-wrap">
-            <div className="flex flex-col justify-center p-[20px] hover:text-[#484be4] text-[#555ff1ea] dark:text-[#f15bff] transition-all items-center">
-              <FaReact className="text-6xl" />
-              <p className="text-2xl">React JS</p>
+
+        {/* Tech Stacks Grid */}
+        <div className="grid md:grid-cols-2 gap-10 mt-10">
+          {/* Frontend Card */}
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition duration-500 hover:shadow-2xl"
+          >
+            <div className="h-2 bg-gradient-to-r from-blue-400 to-indigo-600"></div>
+            <div className="px-8 py-6">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
+                  <span className="text-blue-600 dark:text-blue-400 text-2xl">
+                    <FaReact />
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Frontend</h3>
+              </div>
+              
+              <motion.div 
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-6"
+              >
+                {frontendTech.map((tech, index) => (
+                  <motion.div
+                    key={index}
+                    variants={item}
+                    className="group flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700"
+                  >
+                    <div className="text-5xl text-blue-600 dark:text-blue-400 transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                      {tech.icon}
+                    </div>
+                    <p className="mt-3 text-gray-700 dark:text-gray-300 font-medium">{tech.name}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-            <div className="flex flex-col justify-center hover:text-[#484be4] text-[#555ff1ea] dark:text-[#f15bff] transition-all items-center ">
-              <TbBrandNextjs className="text-6xl " />
-              <p className="text-2xl">Next JS</p>
+          </motion.div>
+
+          {/* Backend Card */}
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition duration-500 hover:shadow-2xl"
+          >
+            <div className="h-2 bg-gradient-to-r from-indigo-600 to-blue-400"></div>
+            <div className="px-8 py-6">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-4">
+                  <span className="text-blue-600 dark:text-blue-400 text-2xl">
+                    <FaNodeJs />
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Backend</h3>
+              </div>
+              
+              <motion.div 
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+              >
+                {backendTech.map((tech, index) => (
+                  <motion.div
+                    key={index}
+                    variants={item}
+                    className="group flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700"
+                  >
+                    <div className="text-5xl text-blue-600 dark:text-blue-400 transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                      {tech.icon}
+                    </div>
+                    <p className="mt-3 text-gray-700 dark:text-gray-300 font-medium">{tech.name}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-            <div className="flex flex-col justify-center hover:text-[#484be4] text-[#555ff1ea] dark:text-[#f15bff] transition-all items-center">
-              <SiTailwindcss className="text-6xl" />
-              <p className="text-2xl">Tailwind CSS</p>
-            </div>
-            <div className="flex flex-col justify-center hover:text-[#484be4] text-[#555ff1ea] dark:text-[#f15bff] transition-all items-center">
-              <SiRedux className="text-6xl" />
-              <p className="text-2xl">Redux</p>
-            </div>
-            <div className="flex flex-col justify-center hover:text-[#484be4] text-[#555ff1ea] dark:text-[#f15bff] transition-all items-center">
-              <AiFillHtml5 className="text-6xl" />
-              <p className="text-2xl">HTML</p>
-            </div>
-            <div className="flex flex-col justify-center hover:text-[#484be4] text-[#555ff1f0] dark:text-[#f15bff] transition-all items-center">
-              <SiCss3 className="text-6xl" />
-              <p className="text-2xl">CSS</p>
-            </div>
-          </div>
-        </div>
-        <div className="w-[90%] md:w-[40%] min-h-auto md:min-h-[300px] flex flex-wrap  dark:bg-[#201f20] rounded-md shadow-xl mt-[100px] bg-white">
-          <div className="w-full  flex justify-center items-center bg-[#c3bfd11f] min-h-[90px] m-[5px]  py-[20px] text-[#5731c9f9] dark:text-[#b86deb] font-abc font-bold text-3xl">
-            Backend
-          </div>
-          <div className="w-full h-auto flex justify-around pt-[50px] items-center flex-wrap">
-            <div className="flex flex-col justify-center p-[20px] hover:text-[#484be4] text-[#484be4] dark:text-[#f15bff] transition-all items-center">
-              <FaNodeJs className="text-6xl" />
-              <p className="text-2xl">Node JS</p>
-            </div>
-            <div className="flex flex-col justify-center p-[20px] hover:text-[#484be4] text-[#484be4] dark:text-[#f15bff] transition-all items-center">
-              <SiFirebase className="text-6xl" />
-              <p className="text-2xl">Firebase</p>
-            </div>
-            <div className="flex flex-col justify-center p-[20px] hover:text-[#484be4] text-[#484be4] dark:text-[#f15bff] transition-all items-center">
-              <SiSocketdotio className="text-6xl" />
-              <p className="text-2xl">Socket.io</p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

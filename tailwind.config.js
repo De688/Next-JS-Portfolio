@@ -18,6 +18,7 @@ module.exports = {
       },
       animation: {
         buble: "buble 10s ease infinite",
+        tilt: "tilt 10s infinite linear",
       },
       keyframes: {
         buble: {
@@ -25,18 +26,29 @@ module.exports = {
             transform: "translate(0px,0px) scale(1)",
           },
           "33%": {
-            transform: "translate(30px,-100px) scale(1.1)",
+            transform: "translate(0px,0px) scale(1)",
           },
           "45%": {
-            transform: "translate(-20px,20px) scale(1.3)",
+            transform: "translate(0px,0px) scale(1)",
           },
           "66%": {
-            transform: " translate(10px,-10px) scale(0.9)",
+            transform: " translate(0px,0px) scale(1)",
           },
           "100%": {
             transform: "translate(0px,0px) scale(1)",
           },
           scaling: {},
+        },
+        tilt: {
+          "0%, 50%, 100%": {
+            transform: "rotate(0deg)",
+          },
+          "25%": {
+            transform: "rotate(1deg)",
+          },
+          "75%": {
+            transform: "rotate(-1deg)",
+          },
         },
       },
     },

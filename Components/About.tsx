@@ -1,113 +1,161 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import compimage from "../assets/employee-business-profile.png";
 import chrisimg from "../assets/chrisimage.jpg";
-import { FaTelegramPlane } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaTelegramPlane, FaInstagram, FaDiscord } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
-import { FaDiscord } from "react-icons/fa";
-
-FaDiscord;
-
-import { motion } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 function About() {
+  const controls = useAnimation();
+  const skillsRef = useRef(null);
+  const isInView = useInView(skillsRef, { once: true, amount: 0.2 });
+  
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  const fadeInUp = {
+    hidden: { y: 60, opacity: 0 },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const staggerCards = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const skills = [
+    "With over three years of experience in web development, I have a strong understanding of the industry",
+    "I am dedicated to ensuring that my work effectively addresses the specific needs of my clients, and I strive to create websites that are both functional and visually appealing.",
+    "I am an easy communicator, making it easy for us to work together comfortably",
+    "Additionally, I am not afraid to ask probing questions in order to fully comprehend and fulfill my clients' needs."
+  ];
+
   return (
-    <div
-      className="w-full flex flex-col lg:flex-col xl:flex-row wrap justify-center items-center min-h-screen "
-      id="about"
-    >
-      <div className=" w-full lg:w-[90%] flex  flex-col lg:flex-col xl:flex-row wrap justify-center items-center min-h-screen">
+    <div className="w-full min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-20" id="about">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-          }}
-          className="  md:h-[500px] flex justify-center items-center w-[95%] md: lg:w-[90%] min-h-[450px] rounded-xl  bg-[#d3d3da66] dark:bg-[#2e2e30] min-h-[300px]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="w-[90%]  md:w-[70%] min-h-[300px] md:min-h-[200px] h-[70%]  shadow-xl rounded-xl bg-[#faf9fa] dark:bg-[#222222] dark:text-[#ec84fa] flex justify-center flex-col">
-            <div className="h-[60px]">
-              <div className="ml-[50px] p-1  mt-[-40px]  md:mt-[-40px] w-[90px] h-[90px] rounded-full border-4 border-[#d0aae7]">
-                <Image
-                  src={chrisimg}
-                  width={90}
-                  height={90}
-                  alt="ChrisImage"
-                  className=" border-8 border-[#87879] rounded-full "
-                />
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+            <span className="inline-block relative">
+              About Me
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-600 transform origin-left"></span>
+            </span>
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+            Get to know the person behind the code
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Profile Card */}
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+          >
+            <div className="relative h-48 bg-gradient-to-r from-blue-500 to-indigo-600">
+              <div className="absolute -bottom-16 left-8">
+                <div className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-800 overflow-hidden shadow-lg">
+                  <Image
+                    src={chrisimg}
+                    width={128}
+                    height={128}
+                    alt="Profile Photo"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
-            <div className="w-full  h-full bg-[#5d3ba0665] text-[#3328d8] dark:text-[#f15bff] flex flex-col justify-around items-center text-center font-md md:text-[18px]  trackingwide">
-              <p className="w-[98%] md:w-[80%] text-center text-[#4c6fcf775]">
+            
+            <div className="pt-20 pb-8 px-8">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Christopher</h3>
+              <p className="text-blue-600 dark:text-blue-400 mb-6">Web Developer </p>
+              
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                 "Greetings, I am a multifaceted professional with expertise in
-                web development, freelancing, and teaching science. I assist
+                web development and freelancing. I assist
                 individuals and businesses in achieving success online through
                 the development of professional websites. Furthermore, I am
                 deeply passionate about business startups and am constantly
                 seeking opportunities to expand my knowledge and skills in this
                 field."
               </p>
-              <div className="w-[50%] h-[80px] flex justify-between pt-[20px] items-center">
-                <Link href="https://t.me/Tt000123466">
-                  <FaTelegramPlane className="cursor-pointer text-[25px] hover:text-[#386bda775]" />
+              
+              <div className="flex space-x-5 items-center justify-center">
+                <Link href="https://t.me/Tt000123466" className="transform transition hover:scale-110">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300">
+                    <FaTelegramPlane className="text-lg" />
+                  </div>
                 </Link>
-                <Link href="https://www.instagram.com/tanzania_web_dev/">
-                  <FaInstagram className="cursor-pointer text-[25px]" />
+                <Link href="https://www.instagram.com/tanzania_web_dev/" className="transform transition hover:scale-110">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300">
+                    <FaInstagram className="text-lg" />
+                  </div>
                 </Link>
-                <Link href="https://www.facebook.com/de.daniel.756">
-                  <MdFacebook className="cursor-pointer text-[25px] " />
+                <Link href="https://www.facebook.com/de.daniel.756" className="transform transition hover:scale-110">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300">
+                    <MdFacebook className="text-lg" />
+                  </div>
                 </Link>
-                <Link href="https://discord.com/channels/Christopher#0001">
-                  <FaDiscord className="cursor-pointer text-[25px] " />
+                <Link href="https://discord.com/channels/Christopher#0001" className="transform transition hover:scale-110">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300">
+                    <FaDiscord className="text-lg" />
+                  </div>
                 </Link>
               </div>
             </div>
-          </div>
-        </motion.div>
-        <div className="relative w-[95%] mt-[50px] sm:w-[95%] md:w-[60%] lg:ml-[50px]  flex justify-end items-center  min-h-[750px] sm:h-[400px] md:h-[600px]">
-          <div className=" absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-0 left-4 bg-[#7774e7] filter blur-2xl rounded-full mix-blend-multiply md:animate-buble md:animation-delay-2000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42  md:w-72 h-72 top-0 right-4  bg-[#60dff0] filter blur-2xl rounded-full mix-blend-multiply md:animate-buble md:animation-delay-4000"></div>
-          <div className="absolute mt-40 w-10 sm:w-42 md:w-72 h-72 top-20 bottom-4 left-20 filter blur-2xl bg-[#ffef0b] rounded-full mix-blend-multiply md:animate-buble md:animation-delay-5000"></div>
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1.0,
-            }}
-            className="w-[95%] sm:w-[95%] wrap md:w-[600px] h-800px rounded-xl shadow-xl flex border-0 flex-col bg-gradient-to-t from-[#ffffff21] to-[#bab8df7f] dark:bg-[#3a383886] justify-center top-[-10px] items-center transparent absolute border-0"
+          </motion.div>
+
+          {/* Skills Cards */}
+          <motion.div 
+            ref={skillsRef}
+            variants={staggerCards}
+            initial="hidden"
+            animate={controls}
+            className="space-y-4"
           >
-            <div className="w-[95%] h-[90px] ">
-              <div className="flex justify-center md:justify-start  items-center text-2xl pl-10 pt-5 text-[#5651E5] dark:text-[#c891ec] font-bold tracking-wide">
-                Why work with Me
-              </div>
-            </div>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] dark:text-[#b86deb] dark:bg-[#424044] w-auto md:w-[500px] mb-10 rounded-2xl shadow-xl tracking-wide">
-              With over three years of experience in web development, I have a
-              strong understanding of the industry
-            </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
-              I am dedicated to ensuring that my work effectively addresses the
-              specific needs of my clients, and I strive to create websites that
-              are both functional and visually appealing.
-            </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044] mb-10 rounded-2xl shadow-xl tracking-wide">
-              I am an easy communicator, making it easy for us to work together
-              comfortably
-            </p>
-            <p className="bg-white flex text-center justify-center items-center py-5 mx-5 md:px-5 text-[#040163c1] md:w-[500px] dark:text-[#b86deb] dark:bg-[#424044]  mb-10 rounded-2xl shadow-xl tracking-wide">
-              Additionally, I am not afraid to ask probing questions in order to
-              fully comprehend and fulfill my clients' needs.
-            </p>
+            <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">Why work with Me</h3>
+            
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={fadeInUp}
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-l-4 border-blue-600"
+              >
+                <p className="text-gray-700 dark:text-gray-300">{skill}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
+
+        {/* Background Elements */}
+        
       </div>
     </div>
   );
 }
 
 export default About;
-// gradient-to-r from-indigo-500 to-sky-500
